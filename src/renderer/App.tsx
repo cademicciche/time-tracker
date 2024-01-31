@@ -4,17 +4,20 @@ import './App.css';
 import { ChakraProvider } from '@chakra-ui/react';
 import MainScreen from './MainScreen/MainScreen';
 import { Provider } from 'react-redux';
-import { store } from '../store/store';
+import { persistor, store } from '../store/store';
+import { PersistGate } from 'redux-persist/integration/react';
 
 export default function App() {
   return (
     <ChakraProvider>
       <Provider store={store}>
-        <Router>
-          <Routes>
-            <Route path="/" element={<MainScreen />} />
-          </Routes>
-        </Router>
+        <PersistGate loading={null} persistor={persistor}>
+          <Router>
+            <Routes>
+              <Route path="/" element={<MainScreen />} />
+            </Routes>
+          </Router>
+        </PersistGate>
       </Provider>
     </ChakraProvider>
   );

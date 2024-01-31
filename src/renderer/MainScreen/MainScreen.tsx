@@ -3,6 +3,7 @@ import NavBar from '../NavBar/NavBar';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
 import TimerList from './TimerList';
+import { TotalTime } from './TotalTime';
 
 const Container = chakra(Box, {
   baseStyle: {
@@ -18,6 +19,7 @@ export default function MainScreen(): JSX.Element {
     <Container>
       <NavBar />
       <TimerList />
+      <TotalTime />
     </Container>
   );
 }

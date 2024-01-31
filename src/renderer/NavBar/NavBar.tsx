@@ -9,9 +9,11 @@ import {
   Tooltip,
   useDisclosure,
 } from '@chakra-ui/react';
-import { FaPlus, FaSave } from 'react-icons/fa';
+import { FaPlus, FaSave, FaUndo } from 'react-icons/fa';
 import { Fragment } from 'react';
 import { AddTimerModal } from './AddTimerModal';
+import { useDispatch } from 'react-redux';
+import { reset } from '../../store/slices/timerSets';
 
 const Container = chakra(Flex, {
   baseStyle: {
@@ -38,6 +40,11 @@ const Panel = chakra(Flex, {
 
 export default function NavBar(): JSX.Element {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const dispatch = useDispatch();
+
+  const handleReset = () => {
+    dispatch(reset());
+  };
 
   return (
     <Fragment>
@@ -54,8 +61,13 @@ export default function NavBar(): JSX.Element {
               mr={5}
             />
           </Tooltip>
-          <Tooltip label="Save timer set">
-            <IconButton icon={<FaSave />} aria-label="Save timer set" />
+          <Tooltip label="Reset">
+            <IconButton
+              onClick={handleReset}
+              icon={<FaUndo />}
+              aria-label="Reset"
+              mr={5}
+            />
           </Tooltip>
         </Panel>
       </Container>

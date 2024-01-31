@@ -59,6 +59,9 @@ export const timersSlice = createSlice({
         }
       });
     },
+    reset: () => {
+      return initialState;
+    },
   },
 });
 
@@ -70,4 +73,5 @@ export const {
   stopTimer,
   setTime,
   resetTimer,
+  reset,
 } = timersSlice.actions;
