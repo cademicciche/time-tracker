@@ -125,7 +125,6 @@ app.on('window-all-closed', () => {
     app.quit();
   }
 });
-
 app
   .whenReady()
   .then(() => {
@@ -137,3 +136,5 @@ app
     });
   })
   .catch(console.log);
+
+app.setName('Time Tracker');
