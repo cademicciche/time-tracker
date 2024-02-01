@@ -9,6 +9,7 @@ const Container = chakra(Box, {
   baseStyle: {
     height: '100%',
     width: '100%',
+    overflow: 'auto',
   },
 });
 
