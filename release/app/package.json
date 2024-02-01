@@ -1,7 +1,7 @@
 {
   "name": "time-tracker",
   "productName": "Time Tracker",
-  "version": "0.0.1",
+  "version": "0.2.0",
   "description": "Track your time for different projects",
   "license": "MIT",
   "author": {
