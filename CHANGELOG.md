@@ -12,3 +12,6 @@
 - Adjust styling of navigation bar
 - Decreased padding on timer list to allow more room for content
 - Added confirmation dialog when resetting timers
+
+# 0.0.1 (01/30/24)
+Initial release
