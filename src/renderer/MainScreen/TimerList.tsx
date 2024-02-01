@@ -6,9 +6,8 @@ import { Fragment } from 'react';
 
 const Container = chakra(Box, {
   baseStyle: {
-    mt: 10,
     width: '100%',
-    p: 8,
+    p: 5,
     overflow: 'auto',
   },
 });
