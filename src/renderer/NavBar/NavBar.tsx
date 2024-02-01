@@ -14,6 +14,7 @@ import { Fragment } from 'react';
 import { AddTimerModal } from './AddTimerModal';
 import { useDispatch } from 'react-redux';
 import { reset } from '../../store/slices/timerSets';
+import { ConfirmModal } from '../ConfirmModal/ConfirmModal';
 
 const Container = chakra(Flex, {
   baseStyle: {
@@ -23,11 +24,11 @@ const Container = chakra(Flex, {
     wrap: 'wrap',
     width: '100%',
     height: 25,
-    bgColor: '#C3B1E1',
-    pb: 8,
+    bgColor: 'purple.400',
+    color: 'purple.900',
+    p: 5,
     pt: 8,
-    pl: 5,
-    pr: 5,
+    pb: 8,
   },
 });
 
@@ -40,6 +41,11 @@ const Panel = chakra(Flex, {
 
 export default function NavBar(): JSX.Element {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const {
+    isOpen: resetModalOpen,
+    onOpen: onResetOpen,
+    onClose: onResetClose,
+  } = useDisclosure();
   const dispatch = useDispatch();
 
   const handleReset = () => {
@@ -55,24 +61,35 @@ export default function NavBar(): JSX.Element {
         <Panel>
           <Tooltip label="Add timer">
             <IconButton
+              variant="ghost"
+              color="purple.900"
               onClick={onOpen}
               icon={<FaPlus />}
               aria-label="Add timer"
-              mr={5}
+              mr={2}
             />
           </Tooltip>
           <Tooltip label="Reset">
             <IconButton
-              onClick={handleReset}
+              variant="ghost"
+              color="purple.900"
+              onClick={onResetOpen}
               icon={<FaUndo />}
               aria-label="Reset"
-              mr={5}
             />
           </Tooltip>
         </Panel>
       </Container>
       <Divider />
       <AddTimerModal isOpen={isOpen} onClose={onClose} />
+      <ConfirmModal
+        isOpen={resetModalOpen}
+        onClose={onResetClose}
+        title="Are you sure?"
+        details="All of your timers will be deleted."
+        confirmBtnLabel="Reset"
+        onConfirm={handleReset}
+      />
     </Fragment>
   );
 }
