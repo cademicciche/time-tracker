@@ -13,9 +13,9 @@ import {
 type ConfirmModalProps = {
   isOpen: ModalProps['isOpen'];
   onClose: ModalProps['onClose'];
+  onConfirm: () => void;
   title?: string;
   details?: string;
-  onConfirm: () => void;
   confirmBtnLabel?: string;
   cancelBtnLabel?: string;
 };
@@ -23,14 +23,14 @@ type ConfirmModalProps = {
 const DEFAULT_TITLE = 'Confirmation';
 const DEFAULT_DETAILS = 'Are you sure you want to perform this action?';
 
-export function ConfirmModal({
+export default function ConfirmModal({
   isOpen,
   onClose,
   title,
   details,
   onConfirm,
-  confirmBtnLabel = 'Confirm',
-  cancelBtnLabel = 'Cancel',
+  confirmBtnLabel,
+  cancelBtnLabel,
 }: ConfirmModalProps) {
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
@@ -59,3 +59,10 @@ export function ConfirmModal({
     </Modal>
   );
 }
+
+ConfirmModal.defaultProps = {
+  title: 'Confirmation',
+  details: 'Are you sure you want to perform this action?',
+  confirmBtnLabel: 'Confirm',
+  cancelBtnLabel: 'Cancel',
+};

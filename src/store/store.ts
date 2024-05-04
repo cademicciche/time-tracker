@@ -1,7 +1,7 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { timersSlice } from './slices/timerSets';
 import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
+import { timersSlice } from './slices/timerSets';
 
 const persistConfig = {
   key: 'primary',

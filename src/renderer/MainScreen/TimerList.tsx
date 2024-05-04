@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
+import { Box, Divider, chakra } from '@chakra-ui/react';
+import { Fragment, JSX } from 'react';
 import { RootState } from '../../store/store';
 import Timer from './Timer';
-import { Box, Divider, chakra } from '@chakra-ui/react';
-import { Fragment } from 'react';
 
 const Container = chakra(Box, {
   baseStyle: {

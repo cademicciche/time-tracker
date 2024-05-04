@@ -1,7 +1,8 @@
 import { Box, chakra } from '@chakra-ui/react';
+import { JSX } from 'react';
 import NavBar from '../NavBar/NavBar';
 import TimerList from './TimerList';
-import { TotalTime } from './TotalTime';
+import TotalTime from './TotalTime';
 
 const Container = chakra(Box, {
   baseStyle: {

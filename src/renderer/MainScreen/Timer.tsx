@@ -1,8 +1,9 @@
-import { Box, IconButton, Stack, Tag, Text, Tooltip } from '@chakra-ui/react';
-import { Timer } from '../../types/TimerSet';
+import { IconButton, Stack, Tag, Text, Tooltip } from '@chakra-ui/react';
 import { FaPlay, FaStop, FaTrash } from 'react-icons/fa';
 import { LuTimerReset } from 'react-icons/lu';
 import { useDispatch } from 'react-redux';
+import React from 'react';
+import { Timer as TimerItem } from '../../types/TimerSet';
 import {
   removeTimer,
   resetTimer,
@@ -11,7 +12,11 @@ import {
 } from '../../store/slices/timerSets';
 import { useTimer } from '../../hooks/useTImer';
 
-export default function Timer({ timer }: { timer: Timer }): JSX.Element {
+export default function Timer({
+  timer,
+}: {
+  timer: TimerItem;
+}): React.JSX.Element {
   const dispatch = useDispatch();
   useTimer(timer);
 
@@ -41,7 +46,7 @@ export default function Timer({ timer }: { timer: Timer }): JSX.Element {
       </Stack>
       <Stack direction="row" justifyContent="space-between">
         <Tag>{timer.chargeCode}</Tag>
-        <Stack direction={'row'}>
+        <Stack direction="row">
           {timer.isRunning ? (
             <Tooltip label="Stop timer" openDelay={1500}>
               <IconButton

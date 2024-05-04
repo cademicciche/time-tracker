@@ -1,7 +1,7 @@
-import { Box, Flex, Stack, Text, chakra } from '@chakra-ui/react';
+import { Flex, Stack, Text, chakra } from '@chakra-ui/react';
 import { useSelector } from 'react-redux';
+import { useMemo, JSX } from 'react';
 import { RootState } from '../../store/store';
-import { useEffect, useMemo, useState } from 'react';
 
 const Container = chakra(Flex, {
   baseStyle: {
@@ -38,7 +38,7 @@ const addTimeLabels = (timeLabels: Array<string>) => {
   return resultTimeLabel;
 };
 
-export function TotalTime(): JSX.Element {
+export default function TotalTime(): JSX.Element {
   const timers = useSelector((state: RootState) => state.timers);
 
   const totalTime = useMemo(() => {

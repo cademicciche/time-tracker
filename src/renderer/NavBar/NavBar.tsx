@@ -1,20 +1,18 @@
 import {
   Text,
-  Button,
   Flex,
   chakra,
   Divider,
   IconButton,
-  Box,
   Tooltip,
   useDisclosure,
 } from '@chakra-ui/react';
-import { FaPlus, FaSave, FaUndo } from 'react-icons/fa';
-import { Fragment } from 'react';
-import { AddTimerModal } from './AddTimerModal';
+import { FaPlus, FaUndo } from 'react-icons/fa';
+import React from 'react';
 import { useDispatch } from 'react-redux';
+import AddTimerModal from './AddTimerModal';
 import { reset } from '../../store/slices/timerSets';
-import { ConfirmModal } from '../ConfirmModal/ConfirmModal';
+import ConfirmModal from '../ConfirmModal/ConfirmModal';
 
 const Container = chakra(Flex, {
   baseStyle: {
@@ -39,7 +37,7 @@ const Panel = chakra(Flex, {
   },
 });
 
-export default function NavBar(): JSX.Element {
+export default function NavBar(): React.JSX.Element {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const {
     isOpen: resetModalOpen,
@@ -53,7 +51,7 @@ export default function NavBar(): JSX.Element {
   };
 
   return (
-    <Fragment>
+    <>
       <Container as="nav">
         <Text fontSize={20} fontWeight="bold">
           Time Tracker
@@ -90,6 +88,6 @@ export default function NavBar(): JSX.Element {
         confirmBtnLabel="Reset"
         onConfirm={handleReset}
       />
-    </Fragment>
+    </>
   );
 }

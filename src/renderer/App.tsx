@@ -1,11 +1,10 @@
 import { MemoryRouter as Router, Routes, Route } from 'react-router-dom';
-import icon from '../../assets/icon.svg';
 import './App.css';
-import { ChakraProvider } from '@chakra-ui/react';
-import MainScreen from './MainScreen/MainScreen';
-import { Provider } from 'react-redux';
-import { persistor, store } from '../store/store';
 import { PersistGate } from 'redux-persist/integration/react';
+import { ChakraProvider } from '@chakra-ui/react';
+import { Provider } from 'react-redux';
+import MainScreen from './MainScreen/MainScreen';
+import { persistor, store } from '../store/store';
 
 export default function App() {
   return (
