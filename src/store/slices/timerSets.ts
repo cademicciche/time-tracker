@@ -1,8 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { TimerSet, Timer } from '../../types/TimerSet';
-import { randomUUID } from 'crypto';
 import { produce } from 'immer';
-import { RootState } from '../store';
+import { Timer } from '../../types/TimerSet';
 
 const initialState: Timer[] = [];
 
